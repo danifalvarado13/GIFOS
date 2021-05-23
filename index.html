@@ -9,14 +9,17 @@
 </head>
 <body>
     <h1>Barra de busqueda</h1>
-        <div class="buscador-bloque">
+        <div>
                 <form id="search-form">
                     <input type="text" placeholder="Busca GIFOS y más" id="search-input"
                         class="input-buscador">
-                    <button type="submit" id="btn-buscador">Buscar</button>
+                    <button id="submit"  type="button">Buscar</button>
+                    <button id="reset" type="button">Cerrar</button>
                 </form>
+                <h3 id="search-text"></h3>
                 <div id="results" class="results"></div>       
         </div>
+        <ul id="search-prompt"></ul>
     <section>
     <button id="btn-down">Atras</button>    
     <div id="trending"></div>    
