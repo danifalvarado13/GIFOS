@@ -7,6 +7,9 @@ let searchText = document.getElementById("search-text");
 let resultsEl = document.getElementById("results");
 let btnLess = document.getElementById("less");
 let btnMore = document.getElementById("more");
+let mobileExpand = document.createElement("div");
+let desktopExpand = document.getElementById("desktop");
+//Tendencias
 let sliderTrending = document.getElementById("trending");
 let btnDown = document.getElementById("btn-down");
 let btnUp = document.getElementById("btn-up");
@@ -19,6 +22,8 @@ let o = i + 3;
 let index = 0;
 let limit = index + 12;
 setInterval('doSomething()', 10000);
+let favoritosArray = [];
+let stringFavorites = localStorage.getItem("favoriteGif");
 console.log("El contenido cargo, i=" + i);
 
 //Trending Gifos para llenar el div
@@ -36,7 +41,6 @@ function trending(params) {
         let resultsTrending = "";
         //Bucle para que tome 3 imagenes y las ponga en el slide
         while (i < o) {
-            console.log(json.data[i].images.fixed_width.url);
             const url = json.data[i].images.fixed_width.url;
             const width = json.data[i].images.fixed_width.width;
             const height = json.data[i].images.fixed_width.height;
@@ -50,7 +54,6 @@ function trending(params) {
         console.log(error.message); //Muestra el error en la consola
     })
 }
-
 
 //Lo que pasa cuando se oprime el boton atras del slide
 btnDown.addEventListener('click', function () {
@@ -96,8 +99,9 @@ searchInput.addEventListener('keyup', function () {
             let resultsHTML = "";
             json.data.forEach(function (object) {
                 resultsHTML += `<li class="prompt">
-            <p class="buscador-sugerencia-texto" >${object.name}</p> 
-            </li>`
+                <img src="./assets/icon-search.svg" alt="sugerencia-lupa-gris" class="sugerencia-lupa-gris">
+                <p class="buscador-sugerencia-texto" >${object.name}</p> 
+                </li>`
             })
             searchPrompt.innerHTML = resultsHTML; //Para que muestre los 4 resultados en la lista de sugerencias 
         }).catch(function (error) { //Si alguno de los procedimientos anteriores falla se ejecuta catch
@@ -149,6 +153,7 @@ btnLess.addEventListener("click", function (e) {
     if (index == 12) {
         console.log("No hay imagenes previas, index=" + index)
     } else {
+        resultsEl.innerHTML = ``;
         index = index - 24;
         limit = index + 12;
         search(path_search)
@@ -194,12 +199,17 @@ function search(path) {
 //Para añadir los tres botones de funcionalidad a cada imagen
 function putButtons(content) {
     resultsEl.innerHTML += `
-                <div class="results-card" onclick="maxGifMobile('${content.images.fixed_width.url}', '${content.id}', '${content.slug}', '${content.username}', '${content.title}')">
                 <div class="gif-actions">
                     <div class="icons-actions-gif">
-                        <button class="icon-action-favorite" onclick="addFavorite('${content.id}')">Añadir</button>
-                        <button class="icon-action-download" onclick="downloadGif('${content.images.fixed_width.url}', '${content.slug}')">Descargar</button>
-                        <button class="icon-action-expand" onclick="maxGifDesktop('${content.images.fixed_width.url}', '${content.id}', '${content.slug}', '${content.username}', '${content.title}')">Expandir</button>
+                        <button class="icon-action-favorite" onclick="addFavorite('${content.images.fixed_width.url}', '${content.id}', '${content.slug}', '${content.username}', '${content.title}')">
+                        <img src="./assets/icon-fav.svg" id="icon-borrar-fav-${content.id}">
+                        </button>
+                        <button class="icon-action-download" onclick="downloadGif('${content.images.fixed_width.url}', '${content.slug}')">
+                        <img src="./assets/icon-download.svg" alt="icon-download">
+                        </button>
+                        <button class="icon-action-expand" onclick="maxGifDesktop('${content.images.fixed_width.url}', '${content.id}', '${content.slug}', '${content.username}', '${content.title}')">
+                        <img src="./assets/icon-max-normal.svg" alt="icon-max">
+                        </button>
                     </div>
                     <div class="Description-gif">
                         <p class="user-gif-results">${content.username}</p>
@@ -210,3 +220,45 @@ function putButtons(content) {
             </div>`;
 }
 
+//Lo que pasa al presionar el boton de favorito
+function addFavorite(img, id, slug, user, title) {
+    if (window.matchMedia("(min-width: 480px)").matches) {
+        console.log("addFavoriteDesktop: "+id);
+        //Si en el local storage no hay nada, el array queda vacio
+        if (stringFavorites == null) {
+            arrayFavorites = [];
+    
+        } //Si tengo contenido, necesito hacer parse para poder agregar uno nuevo independiente
+        else {
+            arrayFavorites = JSON.parse(stringFavorites);
+        }
+        //El push() añade el elemento al final del array y devuelve la nueva longitud del array.
+        arrayFavorites.push(id);
+        //Vuelvo a pasar a texto el array para subirlo al localStorage
+        stringFavorites = JSON.stringify(arrayFavorites);
+        localStorage.setItem("favoriteGif", stringFavorites);
+        console.log("Gif guardado en favoritos");     
+    } //Maximizar al seleccionar el gif en mobile a 480px
+    else{
+        console.log("addFavoriteMobile");
+        mobileExpand.classList.add("expand-mobile-activated");
+        document.body.appendChild(mobileExpand);
+        console.log(">480px")
+        mobileExpand.style.display = "block";
+        mobileExpand.innerHTML = `
+        <button class="mobile-close" onclick="closeMobileExpand()"><img src="./assets/close.svg" alt=""></button>
+        <img src="${img}" alt="${id}" class="mobile-gif">
+        <div class="card">
+            <div class="mobile-text">
+                <p class="mobile-user">${user}</p>
+                <p class="mobile-title">${title}</p>
+            </div>
+            <div>
+                <button class="mobile-btn" onclick="addFavoriteMaxMobile('${id}')"><img src="./assets/icon-fav-hover.svg" alt="fav-gif" id="icon-fav-max-mob-${id}"></button>
+                <button class="mobile-btn" onclick="downloadGif('${img}', '${slug}')"><img src="./assets/icon-download.svg" alt="download-gif"></button>
+            </div>
+        </div>`;
+        /* Si se quisiera hacer directamente en javscript
+        mobileExpand.style.position = "fixed";*/
+    }   
+}

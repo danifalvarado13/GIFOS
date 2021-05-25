@@ -1,8 +1,9 @@
 {
     "version": 3,
-    "mappings": "",
+    "mappings": "ACCA,AAAA,wBAAwB,CAAA;EACpB,GAAG,EAAE,CAAC;EACN,MAAM,EAAE,KAAK;EACb,KAAK,EAAE,IAAI;EACX,UAAU,EAAE,KAAK;EACjB,QAAQ,EAAE,KAAK;CAElB;;ADND,AAAA,CAAC,CAAC;EACE,MAAM,EAAE,MAAM;EACd,OAAO,EAAE,CAAC;EACV,UAAU,EAAE,UAAU;CACzB",
     "sources": [
-        "styles.scss"
+        "styles.scss",
+        "_mobile.scss"
     ],
     "names": [],
     "file": "styles.css"
