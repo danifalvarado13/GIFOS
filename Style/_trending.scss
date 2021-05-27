@@ -1,0 +1,25 @@
+main .trending_gifos{
+    padding: 30px 30px;
+    background: $bg_trending;
+    display: flex;
+    flex-flow: column wrap;
+
+    h2.title2{
+        color: $font_blue;
+        font-size: 20px;
+        line-height: 30px;
+        text-align: center;
+        margin: 20px 0;
+    }
+
+    p{
+        font-size: 16px;
+        line-height: 23px;
+        text-align: center;
+        font-weight: 500;
+    }
+
+    img.gif{
+        margin: 30px;
+    }
+}
