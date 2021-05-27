@@ -116,7 +116,7 @@ main .search .container-1 {
   position: relative;
 }
 
-main .search .container-1 input#search {
+main .search .container-1 input#search-input {
   width: 300px;
   height: 50px;
   background: #fff;
@@ -161,9 +161,37 @@ main .search h4.sub_trending {
   font-size: 14px;
   line-height: 25px;
   margin: 5px 20%;
+  margin-bottom: 30px;
 }
 
 main .trending_gifos {
+  padding: 30px 30px;
   background: #F3F5F8;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap;
+}
+
+main .trending_gifos h2.title2 {
+  color: #572EE5;
+  font-size: 20px;
+  line-height: 30px;
+  text-align: center;
+  margin: 20px 0;
+}
+
+main .trending_gifos p {
+  font-size: 16px;
+  line-height: 23px;
+  text-align: center;
+  font-weight: 500;
+}
+
+main .trending_gifos img.gif {
+  margin: 30px;
 }
 /*# sourceMappingURL=styles.css.map */
