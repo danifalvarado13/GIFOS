@@ -1,1 +1,169 @@
-/* No CSS *//*# sourceMappingURL=styles.css.map */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+body header nav {
+  background-color: #FFF;
+  width: 100%;
+  height: 90px;
+  position: fixed;
+  top: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+body header nav img.img_logo {
+  width: 49px;
+  height: 49px;
+  margin-left: 6%;
+  margin-top: 20px;
+}
+
+body header nav img.img_burger, body header nav img.img_close {
+  width: 15px;
+  height: 14px;
+}
+
+body header nav img.img_burger {
+  margin: 30px;
+  font-size: 30px;
+}
+
+body header nav img.img_close {
+  display: none;
+  margin: 30px;
+}
+
+body header nav img.img_nuevogifo {
+  display: none;
+}
+
+body header nav .menu_items {
+  display: none;
+  float: right;
+  margin-right: 20px;
+}
+
+body header nav .menu_items li {
+  display: inline-block;
+  line-height: 60px;
+  margin: 0 5px;
+}
+
+body header nav .menu_items li a {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+body header nav .menu_items li a.active, body header nav .menu_items li a:hover {
+  background: rgba(255, 255, 255, 0.5);
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+body header nav .checkbtn {
+  cursor: pointer;
+  float: right;
+}
+
+body header nav #check {
+  display: none;
+}
+
+main .search {
+  margin: 120px, 30px, 20px, 30px;
+  margin-top: 120px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap;
+}
+
+main .search img.img_search {
+  width: 80%;
+  margin: auto;
+}
+
+main .search .search_box {
+  margin: auto;
+}
+
+main .search .container-1 {
+  width: 300px;
+  vertical-align: middle;
+  white-space: nowrap;
+  position: relative;
+}
+
+main .search .container-1 input#search {
+  width: 300px;
+  height: 50px;
+  background: #fff;
+  border: 1px solid #572EE5;
+  font-size: 10pt;
+  float: right;
+  color: #63717f;
+  padding-left: 45px;
+  border-radius: 25px;
+}
+
+main .search .container-1 .icon {
+  position: absolute;
+  top: 50%;
+  margin-left: 260px;
+  margin-top: 14px;
+  z-index: 1;
+}
+
+main .search h1.title1, main .search h3.sub_trending, main .search h4.sub_trending {
+  color: #572EE5;
+  text-align: center;
+}
+
+main .search h1.title1 {
+  font-size: 35px;
+  line-height: 33px;
+  margin-bottom: 40px;
+}
+
+main .search #gifos {
+  color: #50E3C2;
+}
+
+main .search h3.sub_trending {
+  margin-top: 40px;
+  font-size: 16px;
+  line-height: 25px;
+}
+
+main .search h4.sub_trending {
+  font-size: 14px;
+  line-height: 25px;
+  margin: 5px 20%;
+}
+
+main .trending_gifos {
+  background: #F3F5F8;
+}
+/*# sourceMappingURL=styles.css.map */
