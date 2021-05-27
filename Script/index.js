@@ -204,7 +204,7 @@ function putButtons(content) {
                         <button class="icon-action-favorite" onclick="addFavorite('${content.images.fixed_width.url}', '${content.id}', '${content.slug}', '${content.username}', '${content.title}')">
                         <img src="./assets/icon-fav.svg" id="icon-borrar-fav-${content.id}">
                         </button>
-                        <button class="icon-action-download" onclick="downloadGif('${content.images.fixed_width.url}', '${content.slug}')">
+                        <button class="icon-action-download" onclick="downloadGif('${content.images.downsized.url}', '${content.slug}')">
                         <img src="./assets/icon-download.svg" alt="icon-download">
                         </button>
                         <button class="icon-action-expand" onclick="maxGifDesktop('${content.images.fixed_width.url}', '${content.id}', '${content.slug}', '${content.username}', '${content.title}')">
@@ -220,7 +220,7 @@ function putButtons(content) {
             </div>`;
 }
 
-//Lo que pasa al presionar el boton de favorito
+//Lo que pasa al presionar el boton de favorito en el gif
 function addFavorite(img, id, slug, user, title) {
     if (window.matchMedia("(min-width: 480px)").matches) {
         console.log("addFavoriteDesktop: "+id);
@@ -261,4 +261,13 @@ function addFavorite(img, id, slug, user, title) {
         /* Si se quisiera hacer directamente en javscript
         mobileExpand.style.position = "fixed";*/
     }   
+}
+
+//Lo que pasa al presionar el boton de descargar el Gif
+async function downloadGif(gifImg, gifNombre) {
+    let blob = await fetch(gifImg).then(img => img.blob()).catch(function (error) { //Si alguno de los procedimientos anteriores falla se ejecuta catch
+        console.log(error.message); //Muestra el error en la consola
+    });
+    console.log(blob);
+    invokeSaveAsDialog(blob, gifNombre + ".gif");
 }
