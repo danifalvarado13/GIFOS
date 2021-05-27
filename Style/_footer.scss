@@ -1,5 +1,18 @@
 footer{
+    padding-top: 50px;
     p{
-        
+        text-align: center;
+        font-family: $font_roboto;
+        padding: 20px;
+    }
+
+    div.social{
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        padding-bottom: 30px;
+        a{
+            padding: 15px;
+        }
     }
 }

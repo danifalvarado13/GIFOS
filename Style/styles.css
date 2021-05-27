@@ -1,4 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
+@import url("https://allfont.es/allfont.css?fonts=roboto-regular");
+@import url("https://allfont.es/allfont.css?fonts=roboto-black");
 * {
   margin: 0;
   padding: 0;
@@ -28,6 +30,7 @@ body header nav {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  z-index: 2;
 }
 
 body header nav img.img_logo {
@@ -188,10 +191,40 @@ main .trending_gifos p {
   font-size: 16px;
   line-height: 23px;
   text-align: center;
-  font-weight: 500;
+  font-family: "Roboto Regular", arial;
 }
 
 main .trending_gifos img.gif {
   margin: 30px;
+  height: 250px;
+  width: 80%;
+}
+
+footer {
+  padding-top: 50px;
+}
+
+footer p {
+  text-align: center;
+  font-family: "Roboto Regular", arial;
+  padding: 20px;
+}
+
+footer div.social {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-bottom: 30px;
+}
+
+footer div.social a {
+  padding: 15px;
 }
 /*# sourceMappingURL=styles.css.map */

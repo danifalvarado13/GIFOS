@@ -7,6 +7,7 @@ body header nav{
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
+    z-index: 2;
 
     img.img_logo{
         width: 49px;
