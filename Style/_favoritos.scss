@@ -1,0 +1,25 @@
+main .favoritos {
+    .fav{
+        text-align: center;
+        color: $font_blue;
+        margin-top: 10px;
+        h2{
+            font-size: 25px;
+            line-height: 30px;
+        }
+    }
+
+    .contenidoFav{
+        text-align: center;
+        color: $color_aqua;
+        padding: 20px 30px;
+        img{
+            width: 150px;
+            height: 150px;
+        }
+        h4{
+            font-size: 22px;
+            line-height: 33px;
+        }
+    }
+}
