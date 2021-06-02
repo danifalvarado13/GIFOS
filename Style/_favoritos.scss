@@ -22,4 +22,9 @@ main .favoritos {
             line-height: 33px;
         }
     }
+    body.dark &{
+        .fav, .fav h2, .contenidoFav h4{
+            color: $white;
+        }
+    }
 }

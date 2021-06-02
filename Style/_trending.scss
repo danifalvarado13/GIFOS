@@ -3,7 +3,12 @@ main .trending_gifos{
     background: $bg_trending;
     display: flex;
     flex-flow: column wrap;
-
+    body.dark &{
+        background-color: $bg_darkTrending;
+        h2.title2 , p{
+            color: $white;
+        }
+    }
     h2.title2{
         color: $font_blue;
         font-size: 20px;
@@ -23,5 +28,109 @@ main .trending_gifos{
         margin: 30px;
         height: 250px;
         width: 80%;
+    }
+    .trending_container{
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: center;
+        align-items: center;
+        button{
+            display: none;
+        }
+        .trending{
+            display: flex;
+            flex-flow: column wrap;
+            justify-content: center;
+            .gif-actions {
+                width: 90%;
+                height: 200px;
+                position: relative;
+                overflow: hidden;  
+                
+                img{
+                    width: 100%;
+                    height: 100%;
+                    transition: all 500ms ease-out;
+                }
+    
+                .info-gifs{
+                    display: flex;
+                    flex-flow: column nowrap;
+                    position: absolute;
+                    top: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: $bg_violet;
+                    opacity: 0;
+                    transition: all 500ms ease-out;
+                    visibility: hidden;
+                    text-align: left;
+                    &:last-child{
+                        align-self: flex-end;
+                    }
+                    .icons-actions-gif{
+                        display: flex;
+                        flex-flow: row wrap;
+                        justify-content: right;
+                        opacity: 1;
+    
+                        button{
+                            border: none;
+                            cursor: pointer;
+                            margin: 3px;
+                            border-radius: 6px;
+                        }
+                    }
+                    .Description-gif{
+                        align-items: flex-end;
+                        color: $white;
+                        opacity: 1;
+                        font-family: $font_montserrat;
+                        font-weight: 500;
+                    }
+                }
+                &:hover> .info-gifs{
+                    opacity: 0.7;
+                    visibility: visible;
+                }
+                               
+            }
+        }
+    }
+}
+@media all and (min-width: 700px) {
+    main .trending_gifos{
+    h2.title2{
+        font-size: 25px;
+        line-height: 30px;
+    }
+    p{
+        font-size: 18px;
+        line-height: 21px;
+    }
+    .trending_container{
+        margin: 30px;
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: space-around;
+        button{
+            display: unset;
+            background-repeat: no-repeat;
+            border: none;
+            cursor: pointer;
+        }
+        .trending{
+            display: flex;
+            flex-flow: row nowrap;
+            margin-top: 30px;
+            justify-content: space-between;
+            .gif-actions{
+                width: 25vw;
+                margin: 10px;
+            }
+        }
+
+    }
     }
 }

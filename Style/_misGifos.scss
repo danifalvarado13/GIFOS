@@ -22,4 +22,12 @@ main .misGifos{
             line-height: 33px;
         }
     }
+    body.dark &{
+        .mios{
+            color: $white;
+        }
+        .contenidoMis{
+            color: $white;
+        }
+    }
 }

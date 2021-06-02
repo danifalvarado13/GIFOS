@@ -1,23 +1,22 @@
-$(function() {
-    $(".toggle").on("click", function() {
-        if ($(".item").hasClass("active")) {
-            $(".item").removeClass("active");
-            $(this).find("a").html("<img class='img_burger' src='/Style/assets/burger.svg' alt='menu'></img>");
-        } else {
-            $(".item").addClass("active");
-            $(this).find("a").html("<img class='img_close' src='/Style/assets/close.svg' alt='close'></img>");
-        }
-    });
-});
+let toggle = document.getElementById("toggle")
 
-/*let toggle = document.querySelectorAll('.toggle');
-toggle.classList.add('active');
-
-let item = document.querySelectorAll('.item');
+let item = document.getElementsByClassName("item");
 
 toggle.addEventListener('click',function(){
-    if(item.classList("active")){
-        item.removeClass("active")
-        this.find("a").html()
-    }
-})*/
+        if(toggle.src.match("close")){
+            console.log("activo");
+            for (let index = 0; index < 4; index++) {
+                item.item(index).classList.remove("active");
+            }
+            toggle.src = "./Style/assets/burger.svg";
+        } else {
+            console.log("inactivo");
+            for (let index = 0; index < 4; index++) {
+                item.item(index).classList.add("active");
+            }
+            toggle.src = "./Style/assets/close.svg";
+        }   
+});
+
+
+

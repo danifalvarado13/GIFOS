@@ -11,12 +11,12 @@
     <header>
         <nav>
             <ul class="menu">
-                <li class="logo"><a href="index.html"><img class="img_logo" src="/Style/assets/logo-mobile.svg" alt="logo gifos"></a></li>
-                <li class="item"><a href="#">Modo Nocturno</a></li>
+                <li class="logo"><a href="index.html"><img id="logo" class="img_logo" src="/Style/assets/logo-mobile.svg" alt="logo gifos"></a></li>
+                <li class="item"><a href="#" id="modoNoche">Modo Nocturno</a></li>
                 <li class="item"><a href="favorites.html">Favoritos</a></li>
-                <li class="item"><a href="misGifos.html">Mis GIFOS</a></li>                              
-                <li class="item button"><a href="#"><img class="img_nuevogifo" src="/Style/assets/button-crear-gifo.svg" alt="crear gifo"></a></li>
-                <li class="toggle"><a href="#"><img class="img_burger" src="/Style/assets/burger.svg" alt="menu"></a></li>
+                <li class="item" id="gifos"><a href="misGifos.html">Mis GIFOS</a></li>                              
+                <li class="item button"><a href="newGifo.html" id="newGifo"><img class="img_nuevogifo" src="/Style/assets/button-crear-gifo.svg" alt="crear gifo"></a></li>
+                <li class="toggle"><a href="#"><img class="img_burger" src="/Style/assets/burger.svg" alt="menu" id="toggle"></a></li>
             </ul>
         </nav>
     </header>
@@ -33,21 +33,26 @@
         </section>
         <section class="trending_gifos">
             <h2 class="title2">Trending GIFOS</h2>
-            <p>Mira los últimos</p>
-            <p>GIFOS de nuestra comunidad.</p>
-            <img class="gif" src="https://media1.giphy.com/media/W79wfYWCTWidO/200w.webp?cid=ecf05e47jynko45sg0b1hh4w57l98bsm90g7jhexe6gzfe02&rid=200w.webp&ct=g" alt="gif">
+            <p>Mira los últimos GIFOS de nuestra comunidad.</p>
+            <div class="trending_container">
+                <button id="btn-down"><img src="Style/assets/button-slider-left.svg" alt="atras"></button>    
+                <div id="trending" class="trending"></div>    
+                <button id="btn-up"><img src="Style/assets/Button-Slider-right.svg" alt="adelante"></button>
+            </div>
         </section>
     </main>
     <footer>
-        <p>Compartir en:</p>
-        <div class="social">
-            <a href="https://www.facebook.com/GIPHY" target="_blank"><img src="/Style/assets/icon_facebook.svg" alt="facebook"></a>
-            <a href="https://twitter.com/GIPHY" target="_blank"><img src="/Style/assets/icon-twitter.svg" alt="twitter"></a>
-            <a href="https://instagram.com/giphy?utm_medium=copy_link" target="_blank"><img src="/Style/assets/icon_instagram.svg" alt="instagram"></a>
+        <div>
+            <p>Compartir en:</p>
+            <div class="social">
+                <a href="https://www.facebook.com/GIPHY" target="_blank"><img src="/Style/assets/icon_facebook.svg" alt="facebook"></a>
+                <a href="https://twitter.com/GIPHY" target="_blank"><img src="/Style/assets/icon-twitter.svg" alt="twitter"></a>
+                <a href="https://instagram.com/giphy?utm_medium=copy_link" target="_blank"><img src="/Style/assets/icon_instagram.svg" alt="instagram"></a>
+            </div>
         </div>
         <p class="copyRigth">© GIFOS 2020 All Rights Reserved</p>
     </footer>
-    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+    
     <script src="Script/index.js"></script>
     <script src="Script/menu.js"></script>
 </body>

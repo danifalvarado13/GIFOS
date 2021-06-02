@@ -1,0 +1,38 @@
+//Lo que aparece cuando se expande el gif en el movil
+.expand-mobile-activated{
+    display: unset;
+    top: 0;       
+    width: 100%;  
+    background: $bg_white;
+    position: fixed;
+    z-index: 10;
+    display: flex;
+    flex-flow: column nowrap;
+    padding: 40px 30px;
+    div{
+        display: flex;
+        justify-content: right;
+        .mobile-close{
+            border: none;
+            width: 30px;
+            background: unset;
+            cursor: pointer;
+        }
+    }
+    
+    .mobile-gif{
+        margin-top: 30px;
+    }
+    .card{
+        margin-top: 10px;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        .mobile-btn{
+            border: none;
+            background: none;
+            cursor: pointer;
+        }
+    }
+}
+

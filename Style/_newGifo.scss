@@ -1,0 +1,80 @@
+main .newGifo{
+    display: none;
+}
+@media all and (min-width: 700px){
+    main .newGifo{
+        height: 500px;
+        display: grid;
+        grid-template-columns: 1fr 2.5fr 1fr;
+        .icon_camera{
+            #img_camara{
+                width: 123px;
+                height: 100px;
+            }
+            #luz_camara{
+                height: 145px;
+                position: relative;
+            }
+            #cinta2{
+                width: 63px;
+                height: 63px;
+                position: relative;
+            }
+            #cinta1{
+                width: 45px;
+                height: 45px;
+                position: relative;
+            }
+        }
+        
+        .container_newGifo{
+            
+            .box_newGifo{
+                border: 1px solid $font_blue;
+                margin: auto;
+                margin-top: 10px;
+                width: 90%;
+                height: 70%;
+            }
+            .pasos_newGifo{
+                margin: 10px;
+                display: flex;
+                flex-flow: row nowrap;
+                justify-content: center;
+                img{
+                    margin: 5px 15px;
+                }
+            }
+            .linea{
+                width: 100%;
+                height: 5px;
+                background-color: $font_blue;
+                border-radius:11%;
+            }
+            .button_start{
+                display: flex;
+                justify-content: center;
+                margin: 20px;
+                .startnew{
+                    font-size: 13px;
+                    line-height: 16px;
+                    border: 1px solid $font_blue;
+                    color: $font_blue;
+                    font-weight: 600;
+                    font-family:$font_montserrat ;
+                    padding: 10px 15px;
+                    border-radius: 25px;
+                    background-color: $white;
+                    cursor: pointer;
+                }
+            }
+        }
+        .icon_pelicula{
+            display: flex;
+            align-items: flex-end;
+            img{
+                margin-bottom: 60px;
+            }
+        }
+    }
+}
