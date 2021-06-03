@@ -1,7 +1,7 @@
 main .newGifo{
     display: none;
 }
-@media all and (min-width: 700px){
+@media all and (min-width: 600px){
     main .newGifo{
         height: 500px;
         display: grid;

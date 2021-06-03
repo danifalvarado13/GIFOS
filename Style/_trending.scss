@@ -1,5 +1,4 @@
-main .trending_gifos{
-    padding: 30px 30px;
+main .trending_gifos{    
     background: $bg_trending;
     display: flex;
     flex-flow: column wrap;
@@ -15,6 +14,7 @@ main .trending_gifos{
         line-height: 30px;
         text-align: center;
         margin: 20px 0;
+        width: 100vw;
     }
 
     p{
@@ -22,115 +22,140 @@ main .trending_gifos{
         line-height: 23px;
         text-align: center;        
         font-family: $font_roboto;
+        width: 100vw;
     }
+  
 
-    img.gif{
-        margin: 30px;
-        height: 250px;
-        width: 80%;
+    button{
+        display: none;
     }
-    .trending_container{
+    .trending{
         display: flex;
-        flex-flow: column wrap;
-        justify-content: center;
-        align-items: center;
-        button{
+        flex-direction: row;
+        width: 100%;
+        height: 187px;
+        scroll-snap-type: x mandatory;
+        overflow-x: scroll;
+        margin-bottom: 70px;
+        margin-top: 20px;
+        padding-left: 20px;
+        &::-webkit-scrollbar {
             display: none;
         }
-        .trending{
-            display: flex;
-            flex-flow: column wrap;
-            justify-content: center;
-            .gif-actions {
-                width: 90%;
-                height: 200px;
-                position: relative;
-                overflow: hidden;  
-                
-                img{
-                    width: 100%;
-                    height: 100%;
-                    transition: all 500ms ease-out;
-                }
-    
-                .info-gifs{
-                    display: flex;
-                    flex-flow: column nowrap;
-                    position: absolute;
-                    top: 0;
-                    width: 100%;
-                    height: 100%;
-                    background: $bg_violet;
-                    opacity: 0;
-                    transition: all 500ms ease-out;
-                    visibility: hidden;
-                    text-align: left;
-                    &:last-child{
-                        align-self: flex-end;
-                    }
-                    .icons-actions-gif{
-                        display: flex;
-                        flex-flow: row wrap;
-                        justify-content: right;
-                        opacity: 1;
-    
-                        button{
-                            border: none;
-                            cursor: pointer;
-                            margin: 3px;
-                            border-radius: 6px;
-                        }
-                    }
-                    .Description-gif{
-                        align-items: flex-end;
-                        color: $white;
-                        opacity: 1;
-                        font-family: $font_montserrat;
-                        font-weight: 500;
-                    }
-                }
-                &:hover> .info-gifs{
-                    opacity: 0.7;
-                    visibility: visible;
-                }
-                               
+        .gif-actions {
+            object-fit: cover;
+            scroll-snap-align:center;
+            width: 246px;
+            height: 187px;              
+            margin: 0 10px 0 10px;    
+            img{
+                width: 246px;
+                height: 187px;
+               
             }
+            .info-gifs{
+                display: none;
+            }
+                
+                               
         }
+        
     }
 }
-@media all and (min-width: 700px) {
+@media all and (min-width: 600px) {
     main .trending_gifos{
-    h2.title2{
-        font-size: 25px;
-        line-height: 30px;
-    }
-    p{
-        font-size: 18px;
-        line-height: 21px;
-    }
-    .trending_container{
-        margin: 30px;
-        display: flex;
-        flex-flow: row nowrap;
-        align-items: center;
-        justify-content: space-around;
-        button{
-            display: unset;
-            background-repeat: no-repeat;
-            border: none;
-            cursor: pointer;
+        padding: 30px 30px;
+        h2.title2{
+            font-size: 25px;
+            line-height: 30px;
         }
-        .trending{
+        p{
+            font-size: 18px;
+            line-height: 21px;
+        }
+        .trending_container{
+            margin: 30px;
+            width: 100%;
             display: flex;
             flex-flow: row nowrap;
-            margin-top: 30px;
-            justify-content: space-between;
-            .gif-actions{
-                width: 25vw;
-                margin: 10px;
+            align-items: center;
+            justify-content: space-around;
+            button{
+                display: unset;
+                background-repeat: no-repeat;
+                border: none;
+                cursor: pointer;
             }
+            .trending{
+                display: flex;
+                flex-flow: row nowrap;
+                margin-top: 30px;
+                justify-content: space-between;
+                scroll-snap-type: none;
+                overflow: hidden;
+                .gif-actions{
+                    width: 25vw;
+                    height: 100%;
+                    margin: 10px;
+                    position: relative;
+                    overflow: hidden;  
+                    
+                    img{
+                        width: 100%;
+                        height: 100%;
+                        transition: all 500ms ease-out;
+                    }
+        
+                    .info-gifs{
+                        display: unset;
+                        display: flex;
+                        flex-flow: column nowrap;
+                        position: absolute;
+                        top: 0;
+                        width: 100%;
+                        height: 100%;
+                        background: $bg_violet;
+                        opacity: 0;
+                        transition: all 500ms ease-out;
+                        visibility: hidden;
+                        
+                        &:last-child{
+                            align-self: flex-end;
+                        }
+                        .icons-actions-gif{
+                            display: flex;
+                            flex-flow: row wrap;
+                            justify-content: right;
+                            opacity: 1;
+        
+                            button{
+                                border: none;
+                                cursor: pointer;
+                                margin: 3px;
+                                border-radius: 6px;
+                            }
+                        }
+                        .Description-gif{
+                            display: flex; 
+                            text-align: left;
+                            justify-content: start; 
+                            align-content: start;
+                            flex-wrap: wrap;                                                      
+                            color: $white;
+                            opacity: 1;
+                            font-family: $font_montserrat;
+                            font-weight: 500;
+                        }
+                    }
+                    &:hover> .info-gifs{
+                        opacity: 0.7;
+                        visibility: visible;
+                    }
+                                   
+                
+                }
+            }
+    
         }
-
-    }
     }
 }

@@ -13,6 +13,9 @@ modoNoche.addEventListener('click', () =>{
 })
 
 //Traigo los elementos a usar
+
+let trendingContainer = document.getElementById("trending_container");
+let trendingGifos = document.getElementById("trending_gifos");
 let searchInput = document.getElementById("search-input");
 let searchPrompt = document.getElementById('prompts');
 let btnSubmit = document.getElementById("submit");
@@ -25,12 +28,32 @@ let mobileExpand = document.createElement("div");
 let desktopExpand = document.createElement("desktop");
 //borrar lo que este en barra de busqueda
 searchInput.value="";
+
+//Para que cambie el Html del trending cuando la pantalla es menor a 600px
+function screenChange (){
+    if (window.matchMedia("(max-width: 600px)").matches) {
+        console.log("Se ejecuta el if")
+      //trendingContainer.style.display = "none";   
+      trendingGifos.innerHTML = `
+      <h2 class="title2">Trending GIFOS</h2>
+      <p>Mira los últimos GIFOS de nuestra comunidad.</p>
+      <button id="btn-down"><img src="./Style/assets/button-slider-left.svg" alt="atras"></button>    
+      <div id="trending" class="trending"></div>    
+      <button id="btn-up"><img src="./Style/assets/Button-Slider-right.svg" alt="adelante"></button>`; 
+      console.log(trendingGifos); 
+    }else{
+        console.log("no se ejecuta");
+    }
+}
+screenChange();
+//setInterval(screenChange, 3000);
 //Tendencias
 let sliderTrending = document.getElementById("trending");
 let btnDown = document.getElementById("btn-down");
 let btnUp = document.getElementById("btn-up");
 // API KEY de Giphy 
 const api_Key = "NrHH3zVQo9u2guVl7xtYGWphJ9Jl997r";
+
 
 //Se ejecuta cuando se abre la pagina          
 let i = 0;
@@ -275,7 +298,7 @@ function putButtons(content) {
 
 //Lo que pasa al presionar el boton de favorito en el gif
 function addFavorite(img, id, slug, user, title) {
-    if (window.matchMedia("(min-width: 480px)").matches) {
+    if (window.matchMedia("(min-width: 600px)").matches) {
         console.log("addFavoriteDesktop: "+id);
         //Si en el local storage no hay nada, el array queda vacio
         if (stringFavorites == null) {
